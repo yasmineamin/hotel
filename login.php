@@ -182,7 +182,15 @@ div.container form.login-email div.input-group button.btn:hover {
     transform: translateY(-5px);
     background: #6c5ce7;
 }
+p.login-signup-text {
+    color: #111;
+    font-weight: 600;
+}
 
+p.login-signup-text a {
+    text-decoration: none;
+    color: #6c5ce7;
+}
 @media (max-width: 430px) {
     div.container {
         width: 300px;
@@ -219,6 +227,7 @@ div.container form.login-email div.input-group button.btn:hover {
             <div class="input-group">
                 <button class="btn">Login</button>
             </div>
+		<p class="login-signup-text">Don't have an account? <a href="signup.php">Register Here</a>.</p>
         </form>
     </div>
 </body>
