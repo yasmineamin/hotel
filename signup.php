@@ -268,6 +268,53 @@ div.container form.signup div.input-group button.btn:hover {
     transform: translateY(-5px);
     background: #6c5ce7;
 }
+	div.container form.signup div.input-group button.btn2 {
+    display: inline-block;
+   width:auto;
+    padding: 6px 12px;
+    text-align: center;
+    border: none;
+    background: #a29bfe;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+	width:200px;
+	margin:0 auto;
+	height:34px;
+	margin-left:-10px;
+}
+
+div.container form.signup div.input-group button.btn2:hover {
+    transform: translateY(-5px);
+    background: #6c5ce7;
+}
+div.container form.signup div.input-group button.btn3 {
+    display: inline-block;
+   width:auto;
+    padding: 6px 12px;
+    text-align: center;
+    border: none;
+    background: #a29bfe;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .3s;
+	width:200px;
+	margin:0 auto;
+	height:34px;
+	margin-left:-10px;
+	float:right;
+}
+
+div.container form.signup div.input-group button.btn3:hover {
+    transform: translateY(-5px);
+    background: #6c5ce7;
+}
 p.login-signup-text {
     color: #111;
     font-weight: 600;
@@ -319,7 +366,15 @@ p.login-signup-text a {
             <div class="input-group">
                 <button class="btn">Sign Up</button>
             </div>
-		<p class="login-signup-text">Have an account? <a href="login.php">Login Here</a>.</p>
+		<p class="login-signup-text">Have an account? </p>
+		<div class="input-group">
+			<a href="login.php">
+                <button class="btn2">Guest
+				</a></button>
+				<a href="loginemp.php">
+				<button class="btn3">Employee
+				</a></button>
+            </div>
         </form>
     </div>
 </body>
