@@ -1,10 +1,10 @@
-<!--<?php
+<?php
 
 session_start();
 
 
-include("saveconection.php");
-include("fuctions.php");
+include_once("saveconection.php");
+include_once("fuctions.php");
 if($_SERVER['REQUEST_METHOD']=="POST")
 {
 	$email=$_POST['email'];
@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
 
 }
 
-?>-->
+?>
 
 <!DOCTYPE html>
 <html>
