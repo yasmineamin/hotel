@@ -1,45 +1,59 @@
 <?php
-session_start();
 
 
-include("saveconection.php");
-include("fuctions.php");
 
-if($_SERVER['REQUEST_METHOD']=="POST")
+
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
+
+$conn = mysqli_connect($servername,$username,$password,$DB);
+  
+
+if(isset($_POST['submit']))
 {
-	$fname=$_POST['fname'];
-	$lname=$_POST['lname'];
-	$email=$_POST['email'];
-	$password=$_POST['password'];
-	$cpassword=$_POST['cpassword'];
-	$mobile_phone=$_POST['mobile_phone'];
+	 $username= $_POST['username'];
+	$email=  $_POST ['email'];
+	$password=   $_POST['password'];
+	$cpassword= $_POST ['cpassword'];
+	
+  
+	$sql="INSERT INTO users(username,email,password,cpassword) VALUES ('$username','$email','$password','$cpassword')";
 
-	
-	
-	//sign up without filling the data 
-	if(empty($fname)&& empty($fname) && empty($password) && empty($email)  && empty($mobile_phone) && empty($cpassword))
-	{
-		echo "please fill the data ";
-		exit(0);
-	}
-	
-  //check password
-  
-  
+$result=mysqli_query($conn,$sql);
+if($result)
+{
+
   //not matching
- if (!($password === $cpassword) )
+ if (!($password == $cpassword) )
  {
   echo "not matching passwords";
-  exit(0);
+  die;
  }
+ //wrong email
+ $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
+{
+    echo "This email adress isn't valid!";
+    exit(0);
+}
+
+ else
+ {
+	 
+	header("location:index.php");
+	die;
+ }
+ 
   
-  
-  
+  /*
   $uppercase = preg_match('[A-Z]', $password);
   $lowercase = preg_match('[a-z]', $password);
   $number    = preg_match('[0-9]', $password);
   $specialchars = preg_match('[^\w]', $password);
-  
+
   if (strlen($password) < 8)
   {
 	echo "Password less than 8 characters";  
@@ -49,25 +63,25 @@ if($_SERVER['REQUEST_METHOD']=="POST")
   if(!$uppercase )
   {
 	  echo "Password does not include uppercase character";  
-	 exit(0);
+	 ///exit(0);
   }
    if(!$lowercase )
    {
 	   echo "Password does not include lowercase character";  
-	 exit(0);
+	 //exit(0);
    }
    if(!$number )
    {
 	   echo "Password oes not include a number ";  
-	 exit(0);
+	// exit(0);
    }
   if( !$specialchars ) 
   {
    
     echo "Password does not have special characters ";
-	exit(0);
+	//exit(0);
   }
-  
+  echo "r111";
  
  
 	//wrong email
@@ -79,47 +93,33 @@ if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email)
     exit(0);
 }
 
+*/
 
-
-
-    //all data entered and valid 
-	if(!empty($fname)&& !empty($lname) && !empty($password)&& !is_numeric($fname) && !empty($email) && !empty($mobile_phone) && !empty($cpassword))
-	{
-		//save to database
-		$user_id=random_num(20);
-		$query="insert into users(id,user_id,fname,lname,email,password,cpassword,mobile_phone) values('$id','$user_id','$fname','$lname','$email','$password','$cpassword','$mobile_phone')";
-	$mysql=mysqli_query($conn,$query);
-	header("location:index.php");
-	die;
-	}	
-
-	
-	
-	//one of the required data is missing 
-	else
-         {
-		echo "please enter all the required information";
-
-         }
-
-		  $check=mysqli_query($conn,"select * from users where email='$email' and password='$password'  ");
-		 $checkrows=mysqli_num_rows($check);
-
-		 
-		 if($checkrows>0) 
-		 {
-           echo "customer exists";
-         }
-		 else 
-		 {  
-             //insert results from the form input
-      $query = "INSERT IGNORE INTO users(email, password) VALUES('$email', '$password')";
-
-      $result = mysqli_query($conn, $query) or die('Error querying database.');
-
-      mysqli_close($conn);
-    }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 }
+	else 
+		echo"please re-enter the data";
+}
+
+
+//check password
+  
+  
+  
+
+
+	
+
   ?>
 
 		 
@@ -349,22 +349,22 @@ p.login-signup-text a {
  Plus</a>
             <a href="#" class="linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
         </div>
-        <form class="signup">
+        <form class="signup" method="POST" action="signup.php">
 		<p class="signup-text">Sign Up</p>
             <div class="input-group">
-                <input type="username" placeholder="Username" required>
+                <input type="text" name="username" placeholder="Username" required>
             </div>
             <div class="input-group">
-                <input type="email" placeholder="Email" required>
+                <input type="text" name="email" placeholder="Email" required>
             </div>
             <div class="input-group">
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" required>
             </div>
 			<div class="input-group">
-                <input type="confirm-password" placeholder="Confirm Password" required>
+                <input type="password" name="cpassword"  placeholder="Confirm Password" required>
             </div>
             <div class="input-group">
-                <button class="btn">Sign Up</button>
+                <button type="submit" name="submit" class="btn">Sign Up</button>
             </div>
 		<p class="login-signup-text">Have an account? </p>
 		<div class="input-group">
