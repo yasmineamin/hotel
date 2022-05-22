@@ -753,48 +753,6 @@ div.column-3 {
     padding-right: 0px;
   }
 }
-div.bestrate {
-  font-family: ProximaNova Regular;
-  font-size: 16px;
-  line-height: 20px;
-  display: flex;
-  width: 100%;
-  padding-bottom: 35px;
-}
-@media(max-width:768px){
-  div.bestrate {
-    display: block;
-  }
-}
-div.bestrateheader {
-  width: 100%;
-  background-color: #f4f4f4;
-  padding-left: 100px;
-  padding-top: 25px;
-}
-@media(max-width:768px){
-  div.bestrateheader {
-    padding-left: 62px;
-  }
-}
-@media(max-width:425px){
-  div.bestrateheader {
-    padding-left: 26px;
-  }
-}
-p.numeral  {
-  font-size: 48px;
-  line-height: 55px;
-  font-family: ProximaNova Semibold, sans-serif;
-  color: #707070;
-}
-@media(max-width:768px){
-  p.numeral {
-    font-size: 50px;
-    line-height: 55px;
-  }
-}
-
 div.row-center {
   width: 100%;
   margin-left: auto;
