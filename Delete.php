@@ -2,20 +2,24 @@
 table, th, td {
   border: 1px solid black;
 }
-
+table{
+margin-top:20px;
+}
 </style>
 <?php
-include "Menu.php";
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "receptionist2";
+include "recep_menu.php";
+
 session_start();
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
+
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername,$username,$password,$DB);
 $query = "SELECT * FROM user";
-$result = mysqli_query($conn,$query);
+$result = mysqli_query($conn,$query)or die( mysqli_error($conn));
 if(isset($_POST['save'])){
 	$checkbox = $_POST['check'];
 	for($i=0;$i<count($checkbox);$i++){
@@ -28,6 +32,14 @@ if(isset($_POST['save'])){
 }
 ?>
 <html>
+<head>
+<title>Delete User</title>
+<!--<link rel="stylesheet" type="text/CSS"  href="stylesheet.css" />-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7
+.0/css/font-awesome.min.css">
+</head>
 <form method="post" action="">
 <table class="table table-bordered">
 <thead>
