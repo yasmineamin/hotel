@@ -5,6 +5,9 @@ table, th, td {
 table{
 margin-top:20px;
 }
+body{
+background: #f2f2f2;	
+}
 </style>
 <?php
 include "recep_menu.php";
