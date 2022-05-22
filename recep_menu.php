@@ -1,8 +1,4 @@
 <html>
-<head>
-</head>
-<body>
-<html>
 	<head>
 	<!--<link rel="stylesheet" type="text/CSS"  href="stylesheet.css" />-->
     <meta charset="utf-8">
@@ -59,19 +55,4 @@
 		</div>
 		<br><br>
 	</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>    
 </html>
