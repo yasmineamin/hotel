@@ -1,30 +1,30 @@
-<?PHP
+<?php
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
 
+$conn = mysqli_connect($servername,$username,$password,$DB);
+  
+//database includes id-name-email-message
 if(isset($_POST['submit']))
 {
+	$name=$_POST['name'];
+	$email=  $_POST ['email'];
+	$message=$_POST['message'];
 	
-//get data from form  
-$name = $_POST['name'];
-$email= $_POST['email'];
-$message= $_POST['message'];
+  
+	$sql="INSERT INTO contact(name,email,message) VALUES ('$name','$email','$message')";
 
-$to = "" ;
-$subject = "Mail From website";
-
-$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
-$headers = "From: noreply@yoursite.com" . "\r\n" ."CC: somebodyelse@example.com";
-if($email!=NULL || $message!=NULL || $name!=NULL)
+$result=mysqli_query($conn,$sql);
+if($result)
 {
-    mail($to,$subject,$txt,$headers);
-	header("Location:contactus.php");
-	
-	die;
+	echo "<script>alert('message sent successfuly')</script>";
 }
-
-
+else
+	echo"<script>alert('message falied ')</script>";
+ 
 }
-
-
 ?>
 
 
