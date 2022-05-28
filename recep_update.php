@@ -1,21 +1,51 @@
 <style>
-table, th, td {
-  border: 1px solid black;
-}
-
+<style>
+body {
+	  margin: 0;
+	  background: #f2f2f2;
+	}
+	table {
+		font-size: 30px;
+	}
+	td {
+		padding: 15px;
+	}
+	.basic_box {
+		border: 1px solid #ccc;
+		border-radius: 15px;
+		margin: auto;
+		width: 600px;
+		padding: 50px;
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+	}
+	.decor {
+		font-family: Times New Roman;
+	}
+	button{
+	align:center;
+margin-left:-50px;
+   left:50%;
+   width:100px;
+	}
 </style>
+
+
+
 <?php
-include "menu.php";
- $servername = "localhost";
- $username = "root";
- $password = "";
- $dbname = "lab07";
- session_start();
- 
- // Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
+include_once "recep_menu.php";
+
+session_start();
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
+
+
+// Create connection
+$conn = mysqli_connect($servername,$username,$password,$DB);
+
  $query = "SELECT * FROM user";
- $result = mysqli_query($conn,$query);
+ $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
  
 ?>
 <!DOCTYPE html>
@@ -52,22 +82,14 @@ $i++;
 </body>
 </html>
 <?php
- include "Menu.php";
- $servername = "localhost";
- $username = "root";
- $password = "";
- $dbname = "lab07";
- session_start();
- 
- // Create connection
- $conn = new mysqli($servername, $username, $password, $dbname);
+
 if(isset($_POST['submit'])) {
     $sql="UPDATE user set First Name='" . $_POST['first_name'] . "',Email='" . $_POST['email'] . "',Age='" . $_POST['age'] . "' WHERE Id='" .  $_GET['userid'] . "'";
  
-    mysqli_query($conn,$sql);
+    mysqli_query($conn,$sql)or die( mysqli_error($conn));
 $message = "Record Modified Successfully";
 }
-$result = mysqli_query($conn,"SELECT * FROM user WHERE Id='" . $_GET['userid'] . "'");
+$result = mysqli_query($conn,"SELECT * FROM user WHERE Id='" . $_GET['user_id'] . "'")or die( mysqli_error($conn));
 $row= mysqli_fetch_array($result);
 ?>
 <html>
