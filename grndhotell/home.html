@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GRNDhotel</title>
+	 <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bondi.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+	<style>
+        /* Modify the background color */
+         
+        .navbar-custom {
+            background-color: black;
+        }
+        /* Modify brand and text color */
+         
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: white;
+        }
+.navbar-nav .nav-item .nav-item.active .nav-link
+.nav-link.active {
+    color: white;
+}
+
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: #7fffd4;
+}
+    </style>
+  </head>
+  <body>
+  
+  
+  <!----NAVIGATION BAR-->
+  
+    <nav class="navbar navbar-expand-lg navbar-custom">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <!---<img src="imgs/logo.png" alt="" />-->
+		  <h1 style=color:white;>GRNDhotel</h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main"
+          aria-controls="main"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse " id="main">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-item-custom mx-lg-auto">
+            <li class="nav-item ">
+              <a class="nav-link p-2 p-lg-3" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link p-2 p-lg-3" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-2 p-lg-3" href="#">Contact</a>
+            </li>
+          </ul>
+		  <div class="navbar-nav ms-lg-4">
+                <a class="nav-item nav-link" href="#">login</a>
+            </div>
+         
+			<a href="#" class="btn rounded-pill bg-danger btn-sm btn-neutral w-full w-lg-auto text-white">
+                    Sign up
+                </a>
+            <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
+                
+            </div>
+         <!-- <div class=" ps-3 pe-3 d-none d-lg-block ">
+            <i class="fa-solid fa-magnifying-glass text-white"></i>
+          </div>	<a class="btn rounded-pill main-btn bg-danger text-white" href="#">Login</a>-->   <!-- Action -->
+		
+         
+     </div>
+      </div>
+    </nav>
+
+	<!-----landing--->
+	<section class=" landing d-flex justify-content-center align-items-center position-relative pt-48 pb-40 bg-dark bg-cover bg-size--cover" style="background-image:url('https://qpml.com/wp-content/uploads/2017/10/FAC_CHBade-night-street.jpg')">
+    <!-- Overlay -->
+    <span class="position-absolute top-0 start-0 w-full h-full bg-dark opacity-0s"></span>
+    <!-- Content -->
+    <div class="container-lg max-w-screen-xl position-relative overlap-10 text-center text-lg-start pt-5 pb-5 pt-lg-6">
+        <div class="row row-grid align-items-center">
+            <div class="col-lg-8 text-center text-lg-start">
+                <!-- Title -->
+                <h1 class="ls-tight font-bolder display-5 text-white mb-5">
+                    We built incredible web products for designers & developers
+                </h1>
+                <!-- Text -->
+                <p class="lead text-white text-opacity-80 mb-10 w-lg-2/3">
+                    For over 5 years, we pride ourselves on our commitment to excellence, as well as our ability to deliver for our customers.
+                    </h1>
+                    <!-- Buttons -->
+                <div class="mt-10 mx-n2">
+                    <a href="#" class="btn btn-lg btn-primary shadow-sm mx-2 px-lg-8">
+                        Get started
+                    </a>
+                    <a href="#" class="btn btn-lg btn-neutral mx-2 px-lg-8">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+	
+	
+	<!---LANDING PAGE-->
+<!--	<div
+  class="bg-image"
+  style="
+    background-image: url('https://15pictures.com/wp-content/gallery/15-pictures-hotels/hotels-9.jpg');
+    height: 100vh;
+	opacity:75%;
+	
+  "><div class="text-bottom text-center text-light mb-5">
+        <h1>Welcome</h1>
+        <p class="fs-6 text-white-50 mb-5"> </p>
+        <a class="btn rounded-pill main-btn" href="#">About</a>
+      </div>
+</div>
+   <!--- <div class="landing d-flex justify-content-center align-items-center bg-image
+      
+    </div>
+    <div class="features text-center pt-5 pb-5">
+      <div class="container">
+        <div class="main-title mt-5 mb-5 position-relative">
+          <img class="mb-4" src="imgs/title.png" alt="" />
+          <h2>We are Good at</h2>
+          <p class="text-black-50 text-uppercase"></p>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="feat">
+              <div class="icon-holder position-relative">
+                <i class="fa-solid fa-1 position-absolute bottom-0 number"></i>
+                <i class="fa-solid fa-pencil fa-4x position-absolute bottom-0 icon"></i>
+              </div>
+              <h4 class="mb-3 mt-3 text-uppercase"></h4>
+              <p class="text-black-50 lh-lg">
+               
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feat">
+              <div class="icon-holder position-relative">
+                <i class="fa-solid fa-2 position-absolute bottom-0 number"></i>
+                <i class="fa-solid fa-tv fa-4x position-absolute bottom-0 icon"></i>
+              </div>
+              <h4 class="mb-3 mt-3 text-uppercase"></h4>
+              <p class="text-black-50 lh-lg">
+               
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="feat">
+              <div class="icon-holder position-relative">
+                <i class="fa-solid fa-3 position-absolute bottom-0 number"></i>
+                <i class="fa-solid fa-plug fa-4x position-absolute bottom-0 icon"></i>
+              </div>
+              <h4 class="mb-3 mt-3 text-uppercase"></h4>
+              <p class="text-black-50 lh-lg">
+           
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>-->
+   
+	 <div class="footer pt-5 pb-5 text-white-50 text-center text-md-start">
+      <div class="container">
+	  <div class="row">
+	  <div class="col-md-6 col-lg-4">
+            <div class="links">
+              <h5 class="text-light">About Us</h5>
+			       <ul class="list-unstyled lh-lg">
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Sign In</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Register</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About Us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Contact Us</a></li>
+            </ul>
+     
+            </div>
+         </div>
+		   <div class="col-md-6 col-lg-2">
+            <div class="links">
+              <h5 class="text-light">Links</h5>
+			    
+            <ul class="list-unstyled lh-lg">
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+              
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-2">
+            <div class="info mb-5">
+              <img src="imgs/logo.png" alt="" class="mb-4" />
+              <p class="mb-5">
+               
+              </p>
+             
+            </div>
+          </div>
+       
+         
+          <div class="col-md-6 col-lg-4">
+            <div class="contact">
+              <h5 class="text-light">Contact Us</h5>
+              <p class="lh-lg mt-3 mb-5">Get in touch with us via mail phone.We are waiting for your call or message</p>
+              <a class="btn rounded-pill main-btn w-100" href="#">GRNDhotel@gmail.com</a>
+              <ul class="d-flex mt-5 list-unstyled gap-3">
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-facebook fa-lg facebook rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-twitter fa-lg twitter rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-linkedin fa-lg linkedin rounded-circle p-2"></i
+                  ></a>
+                </li>
+                <li>
+                  <a class="d-block text-light" href="#"
+                    ><i class="fa-brands fa-youtube fa-lg youtube rounded-circle p-2"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+:root{
+	--dark-color:black;
+}
+body{
+	font-family:"Roboto",sans-serif;
+	
+}
+/* start nav */
+
+.navbar{
+	
+	background-color:var(--dark-color);
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+/*end nav */
