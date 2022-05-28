@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 	<style>
 		body {
     line-height: 1
@@ -753,6 +756,48 @@ div.column-3 {
     padding-right: 0px;
   }
 }
+div.bestrate {
+  font-family: ProximaNova Regular;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  width: 100%;
+  padding-bottom: 35px;
+}
+@media(max-width:768px){
+  div.bestrate {
+    display: block;
+  }
+}
+div.bestrateheader {
+  width: 100%;
+  background-color: #f4f4f4;
+  padding-left: 100px;
+  padding-top: 25px;
+}
+@media(max-width:768px){
+  div.bestrateheader {
+    padding-left: 62px;
+  }
+}
+@media(max-width:425px){
+  div.bestrateheader {
+    padding-left: 26px;
+  }
+}
+p.numeral  {
+  font-size: 48px;
+  line-height: 55px;
+  font-family: ProximaNova Semibold, sans-serif;
+  color: #707070;
+}
+@media(max-width:768px){
+  p.numeral {
+    font-size: 50px;
+    line-height: 55px;
+  }
+}
+
 div.row-center {
   width: 100%;
   margin-left: auto;
@@ -882,6 +927,91 @@ div.coverings {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+table {
+
+  border-collapse: collapse;
+  width: 70%;
+}
+
+th, td {
+
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th{
+background-color:cyan;
+}
+
+tr:hover {background-color: coral;}
+.checked {
+  color: orange;
+}
+<!--
+.heading {
+  font-size: 25px;
+  margin-right: 25px;
+}
+
+.fa {
+  font-size: 25px;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
+.bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+.bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+.bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+.bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 400px) {
+  .side, .middle {
+    width: 100%;
+  }
+  /* Hide the right column on small screens */
+  .right {
+    display: none;
+  }
+}-->
 </style>
 </head>
 <body>
@@ -975,42 +1105,172 @@ The wellbeing of our guests and associates is of paramount importance.</div>
 
 </div>
 	
-<div class="tab-container">
-	<div id="Best Rate Guarantee" class="tabcontent">
-  <img style="width:100%" src="COVID-bestRate_3x1-scaled.jpg" alt="Infinity pool with chairs and umbrella overlooking the sea">
-<div class="text-block-right"><h2>Best Rate Guarantee</h2>
-  <p>There are few guarantees in life.</p>
-<p>"But our Best Rate Guarantee is one of the best. It assures that you'll always get the best rate available when you book directly with GRND Hurghada Hotel®."</p>
-</div>
-<div class="seperator">
-<div class="bestrateheader"><h3>Here's how it works:</h3>
+
 </div>
 </div>
-<div class="row-3">
-<div class="bestrate">
-<div class="column-3">
-<div><p class="numeral">1.</p>
 </div>
-<div><p class="info-copy">"Make a reservation using any official GRND Hurghada Hotel reservation channel(GRNDHurghadaHotel.com, Customer Engagements Centers, or directly with a hotel)."</p>
+<div>
+	<h2>COMMENTS</h2>
+
+
+
+<table>
+  <tr>
+    <th>Full Name</th>
+    <th>Email</th>
+	<th>Message</th>
+ 
+  </tr>
+ <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$DB = "login";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $DB);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT name,email, message FROM contact";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+
+  while($row = $result->fetch_assoc()) {
+    echo "<tr><td>".$row["name"]."</td><td>".$row["email"]." </td><td> ".$row["message"]."";
+  }
+  echo "</table>";
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
+</table>
 </div>
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$DB = "login";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $DB);
+// Check connection
+if ($conn->connect_error) 
+{
+  die("Connection failed: " . $conn->connect_error);
+}
+if(isset($_POST['submit']))
+{
+	$user_name=$_POST['user_name'];
+	$rating=$_POST['rating'];
+	$review=$_POST['review'];
+	
+	
+	$sql = "INSERT INTO rating(user_name,rating ,review) values ('$user_name','$rating','$review')";
+$result=mysqli_query($conn,$sql);
+if($result)
+{
+	echo "your review has been sent";
+	
+}
+else
+{
+	echo "fail to insert";
+}
+
+
+}
+
+$conn->close();
+?>
+	
+<div >
+<p>Let us know how we're doing!</p>
+
+  <form action="rating.php" method="POST">
+
+      Your name: <input type="text" name="user_name" required><br><br>
+<!--
+      How many stars would you give us? 
+       <span class="heading">User Rating</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on 254 reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>150</div>
+  </div>
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>63</div>
+  </div>
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>15</div>
+  </div>
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>6</div>
+  </div>
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>20</div>
+  </div>-->
 </div>
 
-<div class="column-3">
-<div><p class="numeral">2.</p></div>
-<div><p class="info-copy">"If you find a lower rate for the same hotel, same room type, and same reservation dates on a non-GRND Hotel website ("Comparison Rate") you may submit a Best Rate claim."</p></div>
-</div>
+      Your review: <br>
+        <textarea name="review" rows="10" cols="30"></textarea><br><br>
 
-<div class="column-3">
-<div><p class="numeral">3.</p>
-</div>
-<div><p class="info-copy">"If we approve your claim, we'll match the Comparison rate AND give you your choice of either an extra 25% discount on the room (20% discount on Design Hotels).".</p>
-</div>
-</div>
-</div>
-</div>
-	
-	
-	
+      <input type="submit" value="Submit" name="submit">
+
+  </form>
+  </div>
 	
 	
 	
