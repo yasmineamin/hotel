@@ -1,5 +1,4 @@
 <style>
-<style>
 body {
 	  margin: 0;
 	  background: #f2f2f2;
