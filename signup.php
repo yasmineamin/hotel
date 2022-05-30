@@ -1,133 +1,6 @@
-<?php
-
-
-
-
-$servername="localhost";
-$username="root";
-$password="";
-$DB="login";
-
-$conn = mysqli_connect($servername,$username,$password,$DB);
-  
-
-if(isset($_POST['submit']))
-{
-	 $username= $_POST['username'];
-	$email=  $_POST ['email'];
-	$password=   $_POST['password'];
-	$cpassword= $_POST ['cpassword'];
-	
-  
-	$sql="INSERT INTO users(username,email,password,cpassword) VALUES ('$username','$email','$password','$cpassword')";
-
-$result=mysqli_query($conn,$sql);
-if($result)
-{
-
-  //not matching
- if (!($password == $cpassword) )
- {
-  echo "not matching passwords";
-  die;
- }
- //wrong email
- $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
-{
-    echo "This email adress isn't valid!";
-    exit(0);
-}
-
- else
- {
-	 
-	header("location:index.php");
-	die;
- }
- 
-  
-  /*
-  $uppercase = preg_match('[A-Z]', $password);
-  $lowercase = preg_match('[a-z]', $password);
-  $number    = preg_match('[0-9]', $password);
-  $specialchars = preg_match('[^\w]', $password);
-  if (strlen($password) < 8)
-  {
-	echo "Password less than 8 characters";  
-	 exit(0);
-  }
-  
-  if(!$uppercase )
-  {
-	  echo "Password does not include uppercase character";  
-	 ///exit(0);
-  }
-   if(!$lowercase )
-   {
-	   echo "Password does not include lowercase character";  
-	 //exit(0);
-   }
-   if(!$number )
-   {
-	   echo "Password oes not include a number ";  
-	// exit(0);
-   }
-  if( !$specialchars ) 
-  {
-   
-    echo "Password does not have special characters ";
-	//exit(0);
-  }
-  echo "r111";
- 
- 
-	//wrong email
- $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
-if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
-{
-    echo "This email adress isn't valid!";
-    exit(0);
-}
-*/
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-}
-	else 
-		echo"please re-enter the data";
-}
-
-
-//check password
-  
-  
-  
-
-
-	
-
-  ?>
-
-		 
-		 
-		 
-		 
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>SIGN UP</title>
+ <title>SIGN UP</title>
     <!--<link rel="stylesheet" type="text/CSS"  href="stylesheet.css" />-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,6 +23,7 @@ if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email)
             display: flex;
             justify-content: center;
             align-items: center;
+			background:radial-gradient(circle, rgba(15,34,84,1) 0%, rgba(61,73,118,1) 100%);
         }
 
         a {
@@ -405,22 +279,174 @@ if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email)
 </head>
 
 <body>
+<?php
+$conn =new mysqli('localhost', 'root', '' , 'login');
+
+$query = '';
+$sqlScript = file('login.sql');
+foreach ($sqlScript as $line)	{
+	
+	$startWith = substr(trim($line), 0 ,2);
+	$endWith = substr(trim($line), -1 ,1);
+	
+	if (empty($line) || $startWith == '--' || $startWith == '/*' || $startWith == '//') {
+		continue;
+	}
+		
+	$query = $query . $line;
+	if ($endWith == ';') {
+		mysqli_query($conn,$query) or die( mysqli_error($conn));
+		$query= '';		
+	}
+}
+
+?>
+
+<?php
+
+
+
+
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
+
+$conn = mysqli_connect($servername,$username,$password,$DB);
+  
+
+if(isset($_POST['submit']))
+{
+	 $username= $_POST['username'];
+	$email=  $_POST ['email'];
+	$password=   $_POST['password'];
+	$cpassword= $_POST ['cpassword'];
+	
+  
+	$sql="INSERT INTO users(username,email,password,cpassword) VALUES ('$username','$email','$password','$cpassword')";
+
+$result=mysqli_query($conn,$sql);
+if($result)
+{
+
+  //not matching
+ if (!($password == $cpassword) )
+ {
+  echo "not matching passwords";
+  die;
+ }
+ //wrong email
+ $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
+{
+    echo "This email adress isn't valid!";
+    exit(0);
+}
+
+ else
+ {
+	 
+	header("location:index.php");
+	die;
+ }
+ 
+  
+  /*
+  $uppercase = preg_match('[A-Z]', $password);
+  $lowercase = preg_match('[a-z]', $password);
+  $number    = preg_match('[0-9]', $password);
+  $specialchars = preg_match('[^\w]', $password);
+  if (strlen($password) < 8)
+  {
+	echo "Password less than 8 characters";  
+	 exit(0);
+  }
+  
+  if(!$uppercase )
+  {
+	  echo "Password does not include uppercase character";  
+	 ///exit(0);
+  }
+   if(!$lowercase )
+   {
+	   echo "Password does not include lowercase character";  
+	 //exit(0);
+   }
+   if(!$number )
+   {
+	   echo "Password oes not include a number ";  
+	// exit(0);
+   }
+  if( !$specialchars ) 
+  {
+   
+    echo "Password does not have special characters ";
+	//exit(0);
+  }
+  echo "r111";
+ 
+ 
+	//wrong email
+ $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
+if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
+{
+    echo "This email adress isn't valid!";
+    exit(0);
+}
+*/
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}
+
+  //not showing an alert box.
+
+echo '<script type="text/javascript">';
+echo '  alert("please re-enter the data");';
+ echo '</script>';
+	
+}
+
+
+//check password
+  
+  
+  
+
+
+	
+
+  ?>
+
 
 
     <div class="container">
         <p class="signup-text">SignUp with social media</p>
         <div class="signup-social">
-            <a href="#" class="facebook"><i class="fa fa-facebook"></i> Facebook</a>
-            <a href="#" class="twitter"><i class="fa fa-twitter"></i> Twitter</a>
-            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i> Google
+            <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i> Facebook</a>
+            <a href="https://twitter.com/i/flow/login" class="twitter"><i class="fa fa-twitter"></i> Twitter</a>
+            <a href="https://myaccount.google.com/" class="google-plus"><i class="fa fa-google-plus"></i> Google
                 Plus</a>
-            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
+            <a href="https://www.linkedin.com/login" class="linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
         </div>
         <form class="signup" method="POST" action="signup.php">
             <p class="signup-text">Sign Up</p>
 
             <div class="input-group">
                 <input type="text" name="email" placeholder="Email" required>
+            </div>
+			<div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <input type="password" name="password" placeholder="Password" required>
@@ -454,7 +480,8 @@ if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email)
 
 
             <div class="input-group">
-                <button type="submit" name="submit" class="btn">Sign Up</button>
+                <button type="submit" name="submit" onclick="myFunction()" class="btn">Sign Up</button>
+				
             </div>
             <div class="input-group">
                 <p class="login-signup-text">Have an account? </p>
