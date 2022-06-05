@@ -1,5 +1,6 @@
 <?php
-include('db.php');
+include_once('functions.php');
+include_once('saveconnection.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,8 +83,8 @@ include('db.php');
 							<li class="menu__item"><a href="#contact" class="menu__link scroll">Contact Us</a></li>
 						</ul>
 					<!--	<a href="admin/reservation.php" class="button">Sign up  </a>-->
-				<button type="button" class="btn btn-primary">Sign up</button><!--<a href="admin/reservation.php" >-->
-                    
+				<button type="button" class="btn btn-primary"><a href="signup.php" >Sign up</a></button>
+                <button type="button" class="btn btn-primary"><a href="login.php" >Login</a></button>
 			
               
 					</nav>
@@ -174,7 +175,7 @@ include('db.php');
 <!-- //Modal1 -->
 <div id="availability-agileits">
 <div class="col-md-12 book-form-left-w3layouts">
-	<a href="admin/reservation.php"><h2>ROOM RESERVATION</h2></a>
+	<a href="USER/login.php"><h2>ROOM RESERVATION</h2></a>
 </div>
 
 			<div class="clearfix"> </div>
@@ -492,7 +493,7 @@ include('db.php');
 								     </ul>
 							</div>
 							<div class="price-selet">	
-								<h3><span>320</span>LE</h3>						
+								<h3><span>2500</span>LE</h3>						
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -515,7 +516,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>220</span>LE</h3>
+								<h3><span>3000</span>LE</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -538,7 +539,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>180</span>LE</h3>
+								<h3><span>4000</span>LE</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -561,7 +562,7 @@ include('db.php');
 								</ul>
 							</div>
 							<div class="price-selet">
-								<h3><span>150</span> LE</h3>
+								<h3><span>1250</span> LE</h3>
 								<a href="admin/reservation.php" >Book Now</a>
 							</div>
 						</div>
@@ -741,13 +742,13 @@ include('db.php');
 																
 			<div class="social-bnr-agileits footer-icons-agileinfo">
 				<ul class="social-icons3">
-								<li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-								<li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-								<li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li> 
+								<li><a href="https://www.facebook.com/" class="fa fa-facebook icon-border facebook"> </a></li>
+								<li><a href="https://twitter.com/i/flow/login" class="fa fa-twitter icon-border twitter"> </a></li>
+								<li><a href="https://myaccount.google.com/" class="fa fa-google-plus icon-border googleplus"> </a></li> 
 								
 							</ul>
 			</div>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3074.7905052320443!2d-77.84987248482734!3d39.586871613613056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c9f6a80ccf0661%3A0x7210426c67abc40!2sVirginia+Welcome+Center%2FSafety+Rest+Area!5e0!3m2!1sen!2sin!4v1485760915662" ></iframe>
+			<iframe src="https://www.google.com/maps/@27.946844,34.2787117,12z" ></iframe>
 		</div>
 		<div class="clearfix"></div>
 	</div>
@@ -876,5 +877,4 @@ fit: true
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 </body>
 </html>
-
 
