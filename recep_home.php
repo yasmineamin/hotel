@@ -7,7 +7,8 @@
 .0/css/font-awesome.min.css">
     <title>Main | Receptionist view</title>
     <style>
-        body{
+        body{ 
+            
 background: #f2f2f2;	
 }
     </style>
