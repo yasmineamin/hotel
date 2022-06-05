@@ -56,15 +56,12 @@ navbar-dark-toggler-border-color:  rgba($white, .1);-->
 					
 				}
 				?>
-				<a class="navbar-brand" href="Myproject/home.html">
+				<a class="navbar-brand" href="Myproject/index.php">
 					<img src="icons.png" alt="hotel_logo" width="30" height="24" class="d-inline-block align-text-top">
 				</a>
 				<a href="recep_home.php">Home</a>
-				<a href='recep_add.php'>Add User</a>
-				<a href='recep_delete.php'>Delete User</a>
-				<a href='recep_update.php'>Update User</a>
-				<a href='recep_view_details.php'>View all Users</a>
-				<a href='recep_search.php'>Search User</a>
+				<a href='recep_add.php'>Add Room</a>
+				<a href='recep_search.php'>Search Rooms</a>
 		</nav>
 		</div>
 		<br><br>

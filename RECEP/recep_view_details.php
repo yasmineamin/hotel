@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>GRND | Recep view all users </title>
+ <link href="icons.png" rel="icon">
 <!--<link rel="stylesheet" type="text/CSS"  href="stylesheet.css" />-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,19 @@ margin-left:-50px;
    left:50%;
    width:100px;
 	}
+	table {
+  border-spacing: 1em .5em;
+  padding: 0 2em 1em 0;
+  border: 1px solid orange;
+}
+
+td {
+  width: 1.5em;
+  height: 1.5em;
+  background: #d2d2d2;
+  text-align: center;
+  vertical-align: middle;
+}
 </style>
 <?php
 include_once "recep_menu.php";
@@ -82,7 +96,7 @@ $DB="login";
 
 // Create connection
 $conn = mysqli_connect($servername,$username,$password,$DB);
-$query = "SELECT * FROM user";
+$query = "SELECT * FROM login";
 $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
  
 
@@ -93,9 +107,9 @@ $result = mysqli_query($conn,$query)or die( mysqli_error($conn));
 <tr>
 
 	<th> Id</th>
-	<th>First Name</th>
+	<th>Username</th>
 	<th>Email</th>
-	<th>Age</th>
+	
   
 	 
 </tr>
@@ -109,9 +123,9 @@ while($row = mysqli_fetch_array($result)or die( mysqli_error($conn)))
 <tr>
   <!--
 	<td><?= $row['Id']; ?></td>
-	<td><?= $row['First Name']; ?></td>
+	<td><?= $row['Username']; ?></td>
 	<td><?=  $row['Email']; ?></td>
-	<td><?= $row['Age']; ?></td>
+	
   -->
 	 
 </tr>

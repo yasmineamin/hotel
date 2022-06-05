@@ -21,9 +21,20 @@ body {
 	padding:10px 20px;
 	font-size: 1rem;
 	}
-	form{
-	margin-top:20px;
-	}
+	
+	table {
+  border-spacing: 1em .5em;
+  padding: 0 2em 1em 0;
+  border: 1px solid orange;
+}
+
+td {
+  width: 1.5em;
+  height: 1.5em;
+  background: #d2d2d2;
+  text-align: center;
+  vertical-align: middle;
+}
 </style>
 </head>
 <body>
@@ -34,59 +45,107 @@ $password="";
 $DB="login";
 
 $conn = mysqli_connect($servername,$username,$password,$DB);
-$emailError="";
-
-if(isset($_POST['Submit'])){  
-	 
-    $email = filter_var($_POST["Email"], FILTER_SANITIZE_EMAIL);
-    if ($email == true) {
-    
-      } else {
-        echo("$email is not a valid email address");
-      }
-     if( strlen($_POST["Password"])<6)
-     {
-        echo("Password Not valid");
-     }
-  
- 
-
-if (filter_var($_POST["Age"], FILTER_VALIDATE_INT) ==true) {
- 
-} else {
-  echo("Integer is not valid");
-}
- 
-        
-		$sql="insert into user(First Name,Email,Password,Age) values(".$_POST['Name']."','".$_POST["Email"]."','".$_POST["Password"]."',,'".$_POST["Age"]."')";
-	 	$result=mysqli_query($conn,$sql)or die( mysqli_error($conn));
-		 
- 
-}
 ?>
+
+
 
  
 <form action="" method="post">
+<h1>Rooms</h1>
+<hr>
+<h3>Add new room</h3>
+
 <div class="input-group">
-  Name:<br>
-  
-  <input type="text" name="Name"><br> 
-  </div>
-  <div class="input-group">
-  Email:<br>
-  <input type="text" name="Email"> <br> 
-  </div>
-  <div class="input-group">
-  Password:<br>
-  <input type="Password" name="Password"><br>
-  </div>
-  <div class="input-group">
-  Age:<br>
-  <input type="Password" name="Age"><br>
-  </div>
+ Room Type <br>
+ <input type="text" placeholder="Single ,double ,triple,etc.">
+ <br>
+ Room Name <br>
+ <input type="text" placeholder="Deluxe, Luxury, Family,etc.">
+ <br>
   <div class="input-group">
   <input type="submit" value="Add" name="Add">
  </div>
+</form>
+<?php
+include_once "recep_menu.php";
+
+
+$conn =new mysqli('localhost', 'root', '' , 'login');
+
+$query = '';
+$sqlScript = file('login.sql');
+foreach ($sqlScript as $line)	{
+	
+	$startWith = substr(trim($line), 0 ,2);
+	$endWith = substr(trim($line), -1 ,1);
+	
+	if (empty($line) || $startWith == '--' || $startWith == '/*' || $startWith == '//') {
+		continue;
+	}
+		
+	$query = $query . $line;
+	if ($endWith == ';') {
+		mysqli_query($conn,$query) or die( mysqli_error($conn));
+		$query= '';		
+	}
+}
+
+
+
+?>
+</head>
+<body>
+<?php
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
+
+
+// Create connection
+$conn = mysqli_connect($servername,$username,$password,$DB);
+$query = "SELECT * FROM rooms";
+$result = mysqli_query($conn,$query)or die( mysqli_error($conn));
+ 
+
+?>
+<h2> List of rooms</h2>
+<form method="post" action="">
+<table >
+<thead>
+<tr>
+
+	<th> Room Number</th>
+	<th>Room Name</th>
+	<th>Type</th>
+	<th>Price per night</th>
+  <th>Actions</th>
+	 
+</tr>
+</thead>
+<?php
+ 
+while($row = mysqli_fetch_array($result)or die( mysqli_error($conn))) 
+{
+    
+?>
+<tr>
+  
+	<td><?= $row['room_number']; ?></td>
+	<td><?= $row['room_name']; ?></td>
+	<td><?=  $row['type']; ?></td>
+	<td><?=  $row['price']; ?></td>
+	<td><?=  $row['actions']; ?></td>
+	
+  
+	 
+</tr>
+<?php
+ 
+}
+?>
+</table>
+ 
 </form>
 
 
