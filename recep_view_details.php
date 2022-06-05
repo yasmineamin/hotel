@@ -37,6 +37,8 @@ $password="";
 $DB="login";
 
 
+
+
 // Create connection
 $conn = mysqli_connect($servername,$username,$password,$DB);
 $query = "SELECT * FROM user";
