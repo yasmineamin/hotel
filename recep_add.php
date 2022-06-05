@@ -99,3 +99,4 @@ if (filter_var($_POST["Age"], FILTER_VALIDATE_INT) ==true) {
 
 </body>
 </html>
+ 
