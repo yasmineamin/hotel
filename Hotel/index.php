@@ -175,7 +175,7 @@ include_once('saveconnection.php');
 <!-- //Modal1 -->
 <div id="availability-agileits">
 <div class="col-md-12 book-form-left-w3layouts">
-	<a href="USER/login.php"><h2>ROOM RESERVATION</h2></a>
+	<a href="USER/signup.php"><h2>ROOM RESERVATION</h2></a>
 </div>
 
 			<div class="clearfix"> </div>
@@ -748,7 +748,7 @@ include_once('saveconnection.php');
 								
 							</ul>
 			</div>
-			<iframe src="https://www.google.com/maps/@27.946844,34.2787117,12z" ></iframe>
+			<iframe src="https://www.google.com/maps/place/Hurghada,+Red+Sea+Governorate/@27.1925045,33.7817104,11z/data=!3m1!4b1!4m5!3m4!1s0x145287b2cd3dbbb3:0x2db807f98bd3c360!8m2!3d27.2578957!4d33.8116067" ></iframe>
 		</div>
 		<div class="clearfix"></div>
 	</div>
