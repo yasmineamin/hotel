@@ -1,8 +1,5 @@
 <style>
 body {
-	
-	
-	
 	  margin: 0;
 	  background: #f2f2f2;
 	}
@@ -91,7 +88,7 @@ if(isset($_POST['submit'])) {
     mysqli_query($conn,$sql)or die( mysqli_error($conn));
 $message = "Record Modified Successfully";
 }
-$result = mysqli_query($conn,"SELECT * FROM user WHERE Id='" . $_GET['user_id'] . "'")or die( mysqli_error($conn));
+$result = mysqli_query($conn,"SELECT * FROM user WHERE Id='" . $_GET['userid'] . "'");
 $row= mysqli_fetch_array($result);
 ?>
 <html>
