@@ -1,6 +1,6 @@
 <html>
 	<head>
-	<link href="icons.png" rel="icon">
+	<link href="img/icons.png" rel="icon">
 	<!--<link rel="stylesheet" type="text/CSS"  href="stylesheet.css" />-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,16 +56,16 @@ navbar-dark-toggler-border-color:  rgba($white, .1);-->
 				}
 				?>
 				<a class="navbar-brand" href="Myproject/index.php">
-					<img src="icons.png" alt="hotel_logo" width="30" height="24" class="d-inline-block align-text-top">
+					<img src="img/icons.png" alt="hotel_logo" width="30" height="24" class="d-inline-block align-text-top">
 				</a>
 				<a href="qc.php">Home</a>
-				<a href='recep_add.php'>Ratings</a>
+				<a href='rating.php'>Ratings</a>
 				<a href='recep_delete.php'>Reservations</a>
 				<a href='recep_update.php'>Promotions</a>
-				<a href='recep_view_details.php'>Receptionists</a>
+				<a href='receptionist.php'>Receptionists</a>
 				
 		</nav>
 		</div>
-		<br><br>
+		
 	</body>
 </html>

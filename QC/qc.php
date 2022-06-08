@@ -19,6 +19,9 @@ include "qc_menu.php";?>
 	<style>
 		body {
     line-height: 1
+
+background: grey;
+
 }
 
 ol,
@@ -553,27 +556,28 @@ div.hero-overlay{
 text-align: center;
 position: absolute;
 color: white;
-padding-left: 100px;
-padding-right: 100px;
-padding-top: 60px;
-padding-bottom:100px;
+
+  padding-left: 100px;
 z-index: 999;
 bottom: 0;
 }
 @media(max-width:700px){
   div.hero-overlay {
-    padding-left: 27px;
-    padding-right: 27px;
+    padding-left: 97px;
+  
   }
 }
 @media(max-width:1024px){
   div.hero-overlay {
     padding-bottom: 65px;
+	 padding-left: 97px;
   }
 }
 @media(max-width:1023px){
  div .hero-overlay {
-    padding-bottom: 10px;
+   padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
 }
 }
 div.herocopy {
@@ -908,12 +912,14 @@ div#text  {order: 1;}
   div#text {order:2;}
 }
 img.body-image {
+		position:relative;
   width: 90%
 }
 @media(max-width:699px){
   img.body-image {
     width: 100%;
   }
+  
 }
 img.hero-image {
   width: 100%
@@ -921,6 +927,7 @@ img.hero-image {
 @media(max-width:400px) {
   img.hero-image {
     display: none;
+	position:relative;
   }
 }
 div.coverings {
@@ -1030,17 +1037,19 @@ div.container{
 </style>
 </head>
 <body>
+
  <div id="main" role="main" class="site-container">
-<script src=""></script><div class=" carousel-component ">
+<script src=""></script>
+<div class=" carousel-component ">
 	<ul class="slides">
 					<li class="slide">
-				<div class="background">
+				<div style="padding-right: 90px padding-left: 10px" class="background">
 
 					<div class="image captioned">
 						<div class="hero-overlay">
 						<img class="clean-logo" src="COVID-commitClean_logo.png" alt="TheHotel. Commitment to clean">
-<h1>Travel With Confidence During COVID-19</h1>
-<div class="herocopy">We are closely monitoring the Centers for Disease Control and Prevention and World Health Organization's statements regarding the novel coronavirus (COVID-19) cases and following guidelines from these agencies and the local health departments. 
+                              <h1>Travel With Confidence During COVID-19</h1>
+                                       <div class="herocopy">We are closely monitoring the Centers for Disease Control and Prevention and World Health Organization's statements regarding the novel coronavirus (COVID-19) cases and following guidelines from these agencies and the local health departments. 
 <br>
 <br>
 The wellbeing of our guests and associates is of paramount importance.</div> 
@@ -1087,7 +1096,7 @@ The wellbeing of our guests and associates is of paramount importance.</div>
 
 <div class="details">
   <div class="information">
-     <img class="body-image" src="COVID-cleanSurface_3x2.jpg" alt="The hotel associate using an electrostatic sprayer to clean public areas, an example of our elevated cleanliness standards.">
+     <img class="body-image" src="img/COVID-cleanSurface_3x2.jpg" alt="The hotel associate using an electrostatic sprayer to clean public areas, an example of our elevated cleanliness standards.">
   </div>
   <div class="information">
      <h3>Surface Areas and Public Spaces</h3>
@@ -1103,13 +1112,13 @@ The wellbeing of our guests and associates is of paramount importance.</div>
      <p class="info-copy">"To help alleviate the risk of COVID-19 transmission through person-to-person contact, Marriott will be using signage in its lobbies to remind guests to maintain social distancing protocols and will remove or re-arrange furniture to allow more space for distancing. The company is planning to add partitions at front desks to provide an extra level of precaution for its guests and associates and is working with supply chain partners to make masks and gloves available to associates. You'll see more hand sanitizing stations around Marriott's hotels - near the entrances and front desks, elevator banks and fitness and meeting spaces. "</p>
   </div>
   <div class="information" id="image">
-<img class="body-image" src="COVID-guestContact_3x2.jpg" alt="Bellman wearing mask and gloves at the Hotel.">
+<img class="body-image" src="img/COVID-guestContact_3x2.jpg" alt="Bellman wearing mask and gloves at the Hotel.">
   </div>
 </div>
 <div class="details">
 <br>
   <div class="information">
-     <img class="body-image" src="COVID-foodSafety_3x2.jpg" alt="Lady holding paper bag and coffee wearing gloves">
+     <img class="body-image" src="img/COVID-foodSafety_3x2.jpg" alt="Lady holding paper bag and coffee wearing gloves">
   </div>
   <div class="information">
      <h3>Food Safety</h3>
@@ -1124,174 +1133,10 @@ The wellbeing of our guests and associates is of paramount importance.</div>
 </div>
 </div>
 </div>
-<div class="container">
-<div >
-	<h2>COMMENTS</h2>
 
-
-
-<table>
-  <tr>
-    <th>Full Name</th>
-    <th>Email</th>
-	<th>Message</th>
- 
-  </tr>
- <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$DB = "login";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $DB);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT name,email, message FROM contact";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-
-  while($row = $result->fetch_assoc()) {
-    echo "<tr><td>".$row["name"]."</td><td>".$row["email"]." </td><td> ".$row["message"]."";
-  }
-  echo "</table>";
-} else {
-  echo "0 results";
-}
-$conn->close();
-?>
-</table>
-</div>
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$DB = "login";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $DB);
-// Check connection
-if ($conn->connect_error) 
-{
-  die("Connection failed: " . $conn->connect_error);
-}
-if(isset($_POST['submit']))
-{
-	$user_name=$_POST['user_name'];
-	$rating=$_POST['rating'];
-	$review=$_POST['review'];
-	
-	
-	$sql = "INSERT INTO rating(user_name,rating ,review) values ('$user_name','$rating','$review')";
-$result=mysqli_query($conn,$sql);
-if($result)
-{
-	echo "your review has been sent";
-	
-}
-else
-{
-	echo "fail to insert";
-}
-
-
-}
-
-$conn->close();
-?>
-	
-<div >
-<p>Let us know how we're doing!</p>
-
-  <form action="rating.php" method="POST">
-
-      Your name: <input type="text" name="user_name" required><br><br>
-<!--
-      How many stars would you give us? 
-       <span class="heading">User Rating</span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<p>4.1 average based on 254 reviews.</p>
-<hr style="border:3px solid #f1f1f1">
-
-<div class="row">
-  <div class="side">
-    <div>5 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-5"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>150</div>
-  </div>
-  <div class="side">
-    <div>4 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-4"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>63</div>
-  </div>
-  <div class="side">
-    <div>3 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-3"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>15</div>
-  </div>
-  <div class="side">
-    <div>2 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-2"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>6</div>
-  </div>
-  <div class="side">
-    <div>1 star</div>
-  </div>
-  <div class="middle">
-    <div class="bar-container">
-      <div class="bar-1"></div>
-    </div>
-  </div>
-  <div class="side right">
-    <div>20</div>
-  </div>-->
-</div>
-
-      Your review: <br>
-        <textarea name="review" rows="10" cols="30"></textarea><br><br>
-
-      <input type="submit" value="Submit" name="submit">
-
-  </form>
-  </div>
-</div>	
 	
 	
 </body>
 </html>
-
 
 
