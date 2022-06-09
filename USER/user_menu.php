@@ -55,17 +55,16 @@ navbar-dark-toggler-border-color:  rgba($white, .1);-->
 					
 				}
 				?>
-				<a class="navbar-brand" href="Myproject/home.html">
+				<a class="navbar-brand" href="Myproject/index.php">
 					<img src="icons.png" alt="hotel_logo" width="50" height="44" class="d-inline-block align-text-top">
 				</a>
 				<a href="user_home.php">Home</a>
-				<a href="user_booking_history.php">Booking history</a>
-				<a href="room.php">Rooms</a>
-				<a href="user_room_status.php">Room status</a>
-				<a href="user_cancel_room.php">Cancel reservation</a>
 				<a href="booking.php">Book A Room</a>
+				<a href="room.php">Rooms</a>
+				<a href="user_booking_history.php">Booking history</a>
+				<a href="user_room_status.php">Room status</a>
 				<a href="user_payment.php">Payment</a>
-				<a href="logout.php">Logout</a>
+				<a href='logout.php' style="float:right;">Logout</a>
 		</nav>
 		</div>
 		<br><br>
