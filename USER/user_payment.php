@@ -42,9 +42,25 @@ include "user_menu.php";
 		border: 1px solid #ccc;
 		border-radius: 15px;
 		margin: auto;
-		width: 600px;
+		width: 1000px;
 		padding: 50px;
 		box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+	}
+table {
+  border-spacing: 2em .7em;
+  padding: 0 2em 1em 0;
+  
+}
+
+td {
+  width: 4em;
+  height: 1.5em;
+ 
+  text-align: center;
+  vertical-align: middle;
+}
+	div.tab2{
+	text-align-last: justify;
 	}
 
 </style>
@@ -73,6 +89,7 @@ include "user_menu.php";
 				<tr>
 					<td colspan="6"><p style="font-size: 28px; text-align: center; text-decoration: underline;"><b>Payment</b></p>
 				</td>
+				</tr>
 				<tr>
 					<th>Booking ID</th>
 					<th>Name</th>
@@ -84,38 +101,56 @@ include "user_menu.php";
 				<tr>
 				<?php
 					$conn = new mysqli($host,$username,$pass,$DB);
-		if($conn->connect_error)
-		{
-			die("Connection failed: ".$conn->connect_error);
-		}
+					if($conn->connect_error)
+					{
+						die("Connection failed: ".$conn->connect_error);
+					}
 					$sql1 = "SELECT * from confirmed_booking";
 					if ($result=mysqli_query($conn,$sql1))
 				  	{
 				  		while ($row=mysqli_fetch_row($result)or die( mysqli_error($conn)))
 				    	{
 				    		?>
-				    		<td><?php echo $row[14]; ?></td>
-				   			<td><?php echo $row[1]; ?></td>
-				   			<td><?php echo $row[3]; ?></td>
+				    		<td><?php echo $row[15]; ?></td>
+				   			<td><?php echo $row[2]; ?></td>
 				   			<td><?php echo $row[4]; ?></td>
-				    		<td><?php echo $row[5]; ?></td>
-				    		<td><?php echo $row[13]; ?></td>
-				</tr><?php
-				    	}
-				    	mysqli_free_result($result); 
-				    }?>
+				   			<td><?php echo $row[5]; ?></td>
+				    		<td><?php echo $row[6]; ?></td>
+				    		<td><?php echo $row[14]; ?></td>
+				</tr>
+								<?php
+									}
+									mysqli_free_result($result); 
+								}?>
 				</table><br><br>
-				<table>
+			</div>
+			<div>
+<table>
+<tr>
+	<th>Enter booking ID: </th>
+	<td>
+</tr>
+	
+
+</table>
+
+
+</div>			
+	
+				
+	
+	</div>
+	<table class="tab2">
 				<tr>
 					<td colspan="1">Enter Booking ID:</td>
 					<td colspan="2">
-						<form action="payment.php" method="post">
+						<form action="payment2.php" method="post">
 							<input type="number" name="book_id">
+							</form>
 					</td>
 					<td style="text-align: center;"><button type="submit">Pay Now</button></td>
 				</tr>
 				
-		</table><br></div>
-	</div>
+				</table>
 </body>
 </html>
