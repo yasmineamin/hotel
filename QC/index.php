@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Review of Ratings </title>
+    <title>Review & Rating System </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -12,9 +12,9 @@
 </head>
 <body>
     <div class="container">
-    	<h1 class="mt-5 mb-5"></h1>
+    	<h1 class="mt-5 mb-5">Review & Rating </h1>
     	<div class="card">
-    		<div class="card-header">Product</div>
+    		<div class="card-header">RATING</div>
     		<div class="card-body">
     			<div class="row">
     				<div class="col-sm-4 text-center">
@@ -72,7 +72,10 @@
                             </div>               
                         </p>
     				</div>
-    				
+    				<div class="col-sm-4 text-center">
+    					<h3 class="mt-4 mb-3">Write Review Here</h3>
+    					<button type="button" name="add_review" id="add_review" class="btn btn-primary">Review</button>
+    				</div>
     			</div>
     		</div>
     	</div>
@@ -84,7 +87,12 @@
 <div id="review_modal" class="modal" tabindex="-1" role="dialog">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
-	    
+	      	<div class="modal-header">
+	        	<h5 class="modal-title">Submit Review</h5>
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          		<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
 	      	<div class="modal-body">
 	      		<h4 class="text-center mt-2 mb-4">
 	        		<i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
@@ -106,31 +114,27 @@
     	</div>
   	</div>
 </div>
-
 <style>
-.progress-label-left
-{
-    float: left;
-    margin-right: 0.5em;
-    line-height: 1em;
-}
-.progress-label-right
-{
-    float: right;
-    margin-left: 0.3em;
-    line-height: 1em;
-}
-.star-light
-{
-	color:#e9ecef;
-}
-</style>
+    .progress-lable-left{
+        float: left;
+        margin-right:0.5em;
+        line-height: 1em;
+        
+    }
+    .progress-lable-right{
+        float: right;
+        margin-left:0.3em;
+        line-height: 1em;
+        
+    }
+    .star-light{
+color: #e9ecef;
+    }
+    </style>
 
-<script>
-
-$(document).ready(function(){
-
-	var rating_data = 0;
+    <script>
+        $(document).ready(function(){
+            var rating_data = 0;
 
     $('#add_review').click(function(){
 
@@ -214,7 +218,6 @@ $(document).ready(function(){
         }
 
     });
-
     load_rating_data();
 
     function load_rating_data()
@@ -314,7 +317,6 @@ $(document).ready(function(){
             }
         })
     }
-
 });
-
-</script>
+    </script>
+        
