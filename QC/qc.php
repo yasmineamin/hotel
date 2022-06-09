@@ -1,17 +1,22 @@
 <html>
 <head>
-	<meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	 <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Main | Quality control view</title>
-	 <link href="icons.png" rel="icon">
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/bondi.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <!-- Custom Styles-->
+    <link href="assets/css/stylee.css" rel="stylesheet" />
+     <!-- Google Fonts-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+	<!---addtional-->
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <?php
 session_start();
 include "qc_menu.php";?>
@@ -557,13 +562,12 @@ text-align: center;
 position: absolute;
 color: white;
 
-  padding-left: 100px;
 z-index: 999;
 bottom: 0;
 }
 @media(max-width:700px){
   div.hero-overlay {
-    padding-left: 97px;
+
   
   }
 }
@@ -1039,15 +1043,15 @@ div.container{
 <body>
 
  <div id="main" role="main" class="site-container">
-<script src=""></script>
+
 <div class=" carousel-component ">
 	<ul class="slides">
 					<li class="slide">
-				<div style="padding-right: 90px padding-left: 10px" class="background">
+				<div   class="background">
 
 					<div class="image captioned">
 						<div class="hero-overlay">
-						<img class="clean-logo" src="COVID-commitClean_logo.png" alt="TheHotel. Commitment to clean">
+						<img class="clean-logo" src="img/COVID-commitClean_logo.png" alt="TheHotel. Commitment to clean">
                               <h1>Travel With Confidence During COVID-19</h1>
                                        <div class="herocopy">We are closely monitoring the Centers for Disease Control and Prevention and World Health Organization's statements regarding the novel coronavirus (COVID-19) cases and following guidelines from these agencies and the local health departments. 
 <br>
@@ -1055,7 +1059,7 @@ div.container{
 The wellbeing of our guests and associates is of paramount importance.</div> 
 <br>
 <br>
-<a style="height:20px" href="/#commitment"><img class="downarrow" src="white-down-arrow-png-2.png" alt="down arrow"/></a>
+<a style="height:20px" href="/#commitment"><img class="downarrow" src="img/white-down-arrow-png-2.png" alt="down arrow"/></a>
 </div>												<picture>
 															<source srcset="https://clean.marriott.com/wp-content/uploads/2020/08/COVID-hero-desktop_16x9-1536x864.jpg, https://clean.marriott.com/wp-content/uploads/2020/08/COVID-hero-desktop_16x9-scaled.jpg 2x" media="(min-width: 1137px)">
 								<source srcset="https://clean.marriott.com/wp-content/uploads/2020/08/COVID-hero-desktop_16x9-1136x639.jpg, https://clean.marriott.com/wp-content/uploads/2020/08/COVID-hero-desktop_16x9-2560x1440.jpg 2x" media="(min-width: 700px)">
