@@ -40,7 +40,7 @@ include "qc_menu.php";?>
                                  
             <?php
 						include ('dp.php');
-						$sql = "SELECT * FROM `login`";
+						$sql = "SELECT * FROM `receptionist`";
 						$re = mysqli_query($con,$sql)
 				?>
 				 <div class="row">
@@ -88,8 +88,8 @@ include "qc_menu.php";?>
 													</button></td>
 													<td><a href= receptionist_del.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete</button></td>
 												
-													<td><a href= receptionist_stat.php?eid=".$id ." <button class='btn btn-success'> <i class='fa fa-edit' ></i> Enable</button></td>
-													<td><a href= receptionist_stat.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Disable</button></td>
+													<td><a href= enable.php?eid=".$id ." <button class='btn btn-success'> <i class='fa fa-edit' ></i> Enable</button></td>
+													<td><a href= disable_recep.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Disable</button></td>
 												</tr>";
 											}
 											else
@@ -103,8 +103,8 @@ include "qc_menu.php";?>
 															 Update 
 													</button></td>
 													<td><a href= receptionist_del.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Delete</button></td>
-													<td><a href= receptionist_stat.php?eid=".$id ." <button class='btn btn-success'> <i class='fa fa-edit' ></i> Enable</button></td>
-													<td><a href= receptionist_stat.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Disable</button></td>
+													<td><a href= enable.php?eid=".$id ." <button class='btn btn-success'> <i class='fa fa-edit' ></i> Enable</button></td>
+													<td><a href= disable_recep.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Disable</button></td>
 												</tr>";
 											
 											}
@@ -164,7 +164,7 @@ include "qc_menu.php";?>
 							$newus = $_POST['newus'];
 							$newps = $_POST['newps'];
 							
-							$newsql ="Insert into login (usname,pass) values ('$newus','$newps')";
+							$newsql ="Insert into receptionist (usname,pass) values ('$newus','$newps')";
 							if(mysqli_query($con,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("User name and password Added") </script>';
@@ -216,7 +216,7 @@ include "qc_menu.php";?>
 					$usname = $_POST['usname'];
 					$passwr = $_POST['pasd'];
 					
-					$upsql = "UPDATE `login` SET `usname`='$usname',`pass`='$passwr' WHERE id = '$id'";
+					$upsql = "UPDATE `receptionist` SET `usname`='$usname',`pass`='$passwr' WHERE id = '$id'";
 					if(mysqli_query($con,$upsql))
 					{
 					echo' <script language="javascript" type="text/javascript"> alert("User name and password update") </script>';
