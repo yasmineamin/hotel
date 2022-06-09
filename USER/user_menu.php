@@ -61,8 +61,8 @@ navbar-dark-toggler-border-color:  rgba($white, .1);-->
 				<a href="user_home.php">Home</a>
 				<a href="booking.php">Book A Room</a>
 				<a href="room.php">Rooms</a>
-				<a href="user_booking_history.php">Booking history</a>
 				<a href="user_room_status.php">Room status</a>
+				<a href="user_booking_history.php">Booking history</a>
 				<a href="user_payment.php">Payment</a>
 				<a href='logout.php' style="float:right;">Logout</a>
 		</nav>
