@@ -1,3 +1,9 @@
+ 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
 --
 -- Database: `login`
 --
@@ -98,11 +104,11 @@ CREATE TABLE `login` (
   `email` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `cpassword` varchar(20) NOT NULL,
-  `mobile_phone` int(11) NOT NULL,
+  `mobile_phone` int(20) NOT NULL,
   `role` enum('guest','recep','quality') NOT NULL,
   `gender` enum('male','female','prefer not to say') NOT NULL,
-  `national_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `national_id` longblob NOT NULL
+)
 
 -- --------------------------------------------------------
 
@@ -114,6 +120,30 @@ CREATE TABLE `payment` (
   `payment_id` int(10) NOT NULL,
   `payment_type` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receptionist`
+--
+
+CREATE TABLE `receptionist` (
+  `id` int(11) NOT NULL,
+  `usname` varchar(11) NOT NULL,
+  `pass` int(11) NOT NULL,
+  `status` enum('Active','Inactive') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `receptionist`
+--
+
+INSERT INTO `receptionist` (`id`, `usname`, `pass`, `status`) VALUES
+(9, 'yasmine', 123, 'Inactive'),
+(10, 'user3', 889, 'Inactive'),
+(11, 'ali', 333, 'Active'),
+(12, 'nourhan', 1313, 'Active'),
+(13, 'sama', 324, 'Active');
 
 -- --------------------------------------------------------
 
@@ -264,6 +294,12 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`payment_id`);
 
 --
+-- Indexes for table `receptionist`
+--
+ALTER TABLE `receptionist`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
@@ -322,6 +358,12 @@ ALTER TABLE `payment`
   MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `receptionist`
+--
+ALTER TABLE `receptionist`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
@@ -344,4 +386,4 @@ ALTER TABLE `temp_book_id`
 --
 ALTER TABLE `user_room_book`
   MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123470;
-COMMIT
+COMMIT;
