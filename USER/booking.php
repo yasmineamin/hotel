@@ -110,6 +110,11 @@ include_once("functions.php");
 					<td>1800</td>
 				</tr>
 				<tr>
+					<td>Triple Bedded</td>
+					<td>3</td>
+					<td>2250</td>
+				</tr>
+				<tr>
 					<td>Four Bedded</td>
 					<td>4</td>
 					<td>3000</td>
@@ -119,12 +124,19 @@ include_once("functions.php");
 				<table>
 					<br><br>
 					<tr>
+					<td>Number of adults:<input type="text" name="noadults"></td>
+					</tr>
+					<tr>
+					<td>Number of children:<input type="text" name="nochild"></td>
+					</tr>
+					<tr>
 						<td style="text-align: left;">Select room type:</td>
 						<td style="text-align: left;">
 							<select name="rooms" required>
 								<option value="">Select</option>
 								<option value="Single bed">Single bedded</option>
 								<option value="Double bed">Double bedded</option>
+								<option value="Triple bed">Triple bedded</option>
 								<option value="Four bed">Four bedded</option>
 							</select>
 						</td>
