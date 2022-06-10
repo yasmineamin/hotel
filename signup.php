@@ -279,33 +279,8 @@
 </head>
 
 <body>
-<?php
-$conn =new mysqli('localhost', 'root', '' , 'login');
-
-$query = '';
-$sqlScript = file('login.sql');
-foreach ($sqlScript as $line)	{
-	
-	$startWith = substr(trim($line), 0 ,2);
-	$endWith = substr(trim($line), -1 ,1);
-	
-	if (empty($line) || $startWith == '--' || $startWith == '/*' || $startWith == '//') {
-		continue;
-	}
-		
-	$query = $query . $line;
-	if ($endWith == ';') {
-		mysqli_query($conn,$query) or die( mysqli_error($conn));
-		$query= '';		
-	}
-}
-
-?>
 
 <?php
-
-
-
 
 $servername="localhost";
 $username="root";
@@ -317,19 +292,28 @@ $conn = mysqli_connect($servername,$username,$password,$DB);
 
 if(isset($_POST['submit']))
 {
-	 $username= $_POST['username'];
-	$email=  $_POST ['email'];
-	$password=   $_POST['password'];
+	$fname= $_POST['fname'];
+	$lname= $_POST['lname'];
+	$username=$_POST['username'];
+	$email=$_POST['email'];
+	$password= $_POST['password'];
 	$cpassword= $_POST ['cpassword'];
-	
+	$mobile_phone= $_POST ['mobile_phone'];
+	//$role= $_POST ['role'];
+	$gender= $_POST ['gender'];
+$national_id=$_POST['national_id'];
   
-	$sql="INSERT INTO users(username,email,password,cpassword) VALUES ('$username','$email','$password','$cpassword')";
+  
+ 
+  
+  
+	$sql="INSERT INTO `login`(`fname`, `lname`, `username`, `email`, `password`, `cpassword`, `mobile_phone`, `gender`, `national_id`) VALUES ('$fname','$lname','$username','$email','$password','$cpassword','$mobile_phone','$gender','$national_id')";
 
-$result=mysqli_query($conn,$sql);
+$result=mysqli_query($conn,$sql )or die(mysqli_error($conn));
 if($result)
 {
 
-  //not matching
+  //not matching-validation
  if (!($password == $cpassword) )
  {
   echo "not matching passwords";
@@ -343,16 +327,15 @@ if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email)
     echo "This email adress isn't valid!";
     exit(0);
 }
-
+}
  else
  {
-	 
 	header("location:index.php");
 	die;
  }
- 
-  
-  /*
+}
+
+/*
   $uppercase = preg_match('[A-Z]', $password);
   $lowercase = preg_match('[a-z]', $password);
   $number    = preg_match('[0-9]', $password);
@@ -387,26 +370,7 @@ if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email)
   echo "r111";
  
  
-	//wrong email
- $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
-if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
-{
-    echo "This email adress isn't valid!";
-    exit(0);
-}
-*/
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 }
 
   //not showing an alert box.
@@ -416,16 +380,7 @@ echo '  alert("please re-enter the data");';
  echo '</script>';
 	
 }
-
-
-//check password
-  
-  
-  
-
-
-	
-
+*/
   ?>
 
 
@@ -441,6 +396,15 @@ echo '  alert("please re-enter the data");';
         </div>
         <form class="signup" method="POST" action="signup.php">
             <p class="signup-text">Sign Up</p>
+			  <div class="input-group">
+                <input type="text" name="fname" placeholder="first name" required>
+            </div>
+			
+			
+			  <div class="input-group">
+                <input type="text" name="lname" placeholder="last name" required>
+            </div>
+			
 
             <div class="input-group">
                 <input type="text" name="email" placeholder="Email" required>
@@ -456,14 +420,12 @@ echo '  alert("please re-enter the data");';
             </div>
             <div class="input-group">
 
-                <input type="text" placeholder="Enter your number" required>
+                <input type="text" name="mobile_phone"placeholder="Enter your number" required>
             </div>
-
-
-            <div class="input-group">
-                <span class="details"> National Id or birth certificate</span>
-            
-                <input type="file" id="actual-btn" required>
+			
+           <div class="input-group">
+                <span class="details">national id or birth certificate</span>
+                <input type="file" name="national_id"id="actual-btn" required>
             </div>
 
 

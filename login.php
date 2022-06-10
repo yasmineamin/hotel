@@ -1,44 +1,70 @@
 <?php
 
-session_start();
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
 
-
-include("saveconection.php");
-include("fuctions.php");
-if($_SERVER['REQUEST_METHOD']=="POST")
+$conn = mysqli_connect($servername,$username,$password,$DB);
+ 
+ if($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-	$email=$_POST['email'];
+//login :email-password-role->check 
+	$email=$_POST ['email'];
 	$password=$_POST['password'];
-	if(!empty($email)&& !empty($password) && !is_numeric($email))
-	{
-		
-		//read from database
-		$query=" select * from users where email=$email limit 1 ";
-	    $result=mysqli_query($conn,$query); 
-		
-		if($result)
-		{
-			 if($result && mysqli_num_rows($result)>0)
-		              {
-		                	$user_data=mysqli_fetch_assoc($result);
-			                 
-							 if($user_data['password']===$password)
-							 {
-								 $_SESSION['user_data']=$user_data['user_id'];
-								 header("location:index.php");
-                                	die;
-							 }
-				
-		              }   
-		}
-		echo "wrong info";
+	//$role= $_POST['role'];
 	
-	}	
-    else
-	echo "please enter a valid information";
+$sql = "SELECT email,password,role FROM login WHERE email='$email' and password='$password'" ;
 
+	
+
+$result=mysqli_query($conn,$sql);
+	if(mysqli_fetch_row($result)>0)
+	{
+		$r=mysqli_fetch_assoc($result);
+		$SESSION['id']=$r['id'];
+		header('location:room.php');
+	}
+
+		else
+			echo '<script>alert("email does not exist please signup first")</script>';
+}
+/*if($result)
+{
+	
+ //wrong email
+ $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
+{
+    echo "This email adress isn't valid!";
+    exit(0);
+}
 
 }
+if($row['role']=="recep")
+	{
+		
+		header("location:recep_home.php");
+		
+		
+	}
+	
+		if($row['role']=="guest")
+	{
+		
+		header("location:index.php");
+		
+	}
+	if($row['role']=="quality")
+	{
+		
+		header("location:qc_home.php");
+		die;
+		
+	}
+*/
+
 
 ?>
 
@@ -216,18 +242,18 @@ p.login-signup-text a {
  Plus</a>
             <a href="#" class="linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
         </div>
-        <form class="login-email">
+        <form class="login-email" method="post">
             <p class="login-text">Login with email</p>
             <div class="input-group">
-                <input type="email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-group">
-                <input type="password" placeholder="Password" required>
+                <input type="password" name="password"placeholder="Password" required>
             </div>
             <div class="input-group">
-                <button class="btn">Login</button>
+                <button class="btn" type="submit" name="login">Login</button>
             </div>
-		<p class="login-signup-text">Don't have an account? <a href="signup.php">Register Here</a>.</p>
+		<p class="login-signup-text">Don't have an account? <a href="signup.php">Signup Here</a>.</p>
         </form>
     </div>
 </body>
