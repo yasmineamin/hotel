@@ -123,7 +123,7 @@ include_once("functions.php");
 					<td>3000</td>
 				</tr>
 			</table><br><br>
-			<form class="basic_box" action="booking1.php" method="post">
+			<form class="basic_box" action="recep_booking1.php" method="post">
 				<table>
 					<br><br>
 					<tr>
