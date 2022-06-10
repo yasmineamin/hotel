@@ -90,7 +90,7 @@ session_start();
 <?php
        // $name = $_SESSION["fname"]; 
     $con=mysqli_connect('localhost','root','');
-    mysqli_select_db($con,'hotelmanagement');
+    mysqli_select_db($con,'login');
 $type = array( 'club','classic','superior','family','presidential','bachelor','luxury','delux','superdelux');
 
 for ($x = 0; $x < sizeof($type) ; $x++) {
@@ -102,7 +102,7 @@ $sel="select * from $type[$x]";
 
     $count[$x] =0;
     $total[$x] =0;
- /*  while($row=mysqli_fetch_assoc($num))
+  /* while($row=mysqli_fetch_assoc($num))
 {
          $total[$x]=$total[$x]+1;
       if ($row['Availability']==1)
