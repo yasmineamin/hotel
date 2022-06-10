@@ -125,13 +125,23 @@ $sel="select * from $type[$x]";
 		 margin-right: 20px;
 		 font-size:18px;'><i class="fa fa-user-circle" aria-hidden="true"></i></p>
 	</div>
+	<div class="selections">
+			<b><i><h3>Choose your stay:</h3></i></b>
+			<select name="choices" id="choice">
+				<option name="dayuse" value="Day use">Day Use</option>
+				<option name="1to7nights" value="1 to 7 nights">1 to 7 nights</option>
+				<option name="longstay" value="Long stay">Long stay (more than 7 nights)</option>
+				<option name="vacation" value="Vacation">Vacation</option>
+				<option name="diffplan" value="I have different plan">I have different plan</option>
+			</select>
+		</div>
 	<p class='des' style="color:#2d545e">ROOM CATEGORY</p>
         
     <p class="des" style="color:#2d545e">THE PLACE, OUR SERVICES & OUR TEAM</p>
 	<div class="hotel-image">
 		 <div class='three'>
 		<div class='hotel-image-detail'><img class='img' src='room3.jpg' alt='Image Error'  width='350px' height='200px'>  
-		<form method='POST' action="rbooking.php" >
+		<form method='POST' action="booking.php" >
 		<center><h2>CLUB ROOM</h2></center>
 		<p class="des">Facilities: Closet with hangers, 24 Hour room service,Computer and Internet access</p>
 		<p class="des">Available:<?php  echo $count[0]; ?>/<?php  echo $total[0]; ?></p>
@@ -140,7 +150,7 @@ $sel="select * from $type[$x]";
         </form>
 		</div>
     <div class='hotel-image-detail'><img class='img' src='room1.jpg' alt='Image Error'  width='350px' height='200px'>
-    <form method='POST' action="rbooking.php" >
+    <form method='POST' action="booking.php" >
     <center><h2>CLASSIC ROOM</h2></center>
     <p class="des">Facilities: Closet with hangers, HD flat-screen TV, Telephone</p>
     <p class="des">Available:<?php  echo $count[1]; ?>/<?php  echo $total[1]; ?></p>
@@ -149,7 +159,7 @@ $sel="select * from $type[$x]";
         </form>
     </div>
     <div class='hotel-image-detail'><img class='images.jpg' src='room2.jpg' alt='Image Error' width='350px' height='200px'>
-     <form method='POST' action="rbooking.php" >
+     <form method='POST' action="booking.php" >
     <center><h2>SUPERIOR ROOM</h2></center>
     <p class="des">Facilities:  Computer and Internet access,HD flat-screen TV, Telephone</p>
     <p class="des">Available:<?php  echo $count[2]; ?>/<?php  echo $total[2]; ?></p>
@@ -160,7 +170,7 @@ $sel="select * from $type[$x]";
 	</div>
 	<div class='three'>
     <div class='hotel-image-detail'><img class='download (12).jpg' src='download (7).jpg' alt='Image Error' width='350px' height='200px'>
-         <form method='POST' action="rbooking.php" >
+         <form method='POST' action="booking.php" >
     <center><h2>FAMILY ROOM</h2></center>
    <p class="des">Facilities:32 Inch flat screen TV, Kitchen facilities,Towels,Dining tables</p>
    <p class="des">Available:<?php  echo $count[3]; ?>/<?php  echo $total[3]; ?></p>
@@ -169,7 +179,7 @@ $sel="select * from $type[$x]";
         </form>
     </div>
     <div class='hotel-image-detail'><img class='img' src='images (6).jpg' alt='Image Error' width='350px' height='200px'>
-         <form method='POST' action="rbooking.php" >
+         <form method='POST' action="booking.php" >
     <center><h2>PRESIDENTIAL SUITES</h2></center>
     <p class="des">Facilities: Closet with hangers, HD flat-screen TV, Telephone</p>
     <p class="des">Available:<?php  echo $count[4]; ?>/<?php  echo $total[4]; ?></p>
@@ -178,7 +188,7 @@ $sel="select * from $type[$x]";
         </form>
     </div>
     <div class='hotel-image-detail'><img class='img' src='download (13).jpg' alt='Image Error' width='350px' height='200px'>
-         <form method='POST' action="rbooking.php" >
+         <form method='POST' action="booking.php" >
     <center><h2>BACHELOR ROOM</h2></center>
    <p class="des">Facilities: Soap & bath amenities,Mini-bar, Telephone</p>
    <p class="des">Available:<?php  echo $count[5]; ?>/<?php  echo $total[5]; ?></p>
@@ -189,7 +199,7 @@ $sel="select * from $type[$x]";
             </div>
 			<div class='three'>
     <div class='hotel-image-detail'><img class='img' src='images.jpg' alt='Image Error' width='350px' height='200px'>
-         <form method='POST' action="rbooking.php" >
+         <form method='POST' action="booking.php" >
     <center><h2>LUXURY ROOM</h2></center>
    <p class="des">Facilities: Closet with hangers,32 Inch flat screen TV,Mini-bar, Telephone</p>
    <p class="des">Available:<?php  echo $count[6]; ?>/<?php  echo $total[6]; ?></p>
@@ -198,7 +208,7 @@ $sel="select * from $type[$x]";
         </form>
     </div>
     <div class='hotel-image-detail'><img class='img' src='download (1).jpg' alt='Image Error' width='350px' height='200px'>
-         <form method='POST' action="rbooking.php" >
+         <form method='POST' action="booking.php" >
     <center><h2>DELUXE ROOM</h2></center>
     <p class="des">Facilities: Closet with hangers, HD flat-screen TV, Telephone</p>
     <p class="des">Available:<?php  echo $count[7]; ?>/<?php  echo $total[7]; ?></p>
@@ -207,7 +217,7 @@ $sel="select * from $type[$x]";
         </form>
     </div>
     <div class='hotel-image-detail'><img class='img' src='download (7).jpg' alt='Image Error' width='350px' height='200px'>
-         <form method='POST' action="rbooking.php" >
+         <form method='POST' action="booking.php" >
     <center><h2>SUPERDELUXE ROOM</h2></center>
    <p class="des">Facilities:32 Inch flat screen TV, HD flat-screen TV,Mini-bar, Telephone</p>
     <p class="des">Available:<?php  echo $count[8]; ?>/<?php  echo $total[8]; ?></p>
@@ -217,16 +227,7 @@ $sel="select * from $type[$x]";
     </div>
             </div>
         </div>
-		<!-- 3ayzeen nhotaha fe page tanya-->
-		<div class="selections">
-			<b><i><h3>Choose your stay:</h3></i></b>
-			<select name="choices" id="choice">
-				<option name="dayuse" value="Day use">Day Use</option>
-				<option name="1to7nights" value="1 to 7 nights">1 to 7 nights</option>
-				<option name="longstay" value="Long stay">Long stay (more than 7 nights)</option>
-				<option name="vacation" value="Vacation">Vacation</option>
-				<option name="diffplan" value="I have different plan">I have different plan</option>
-			</select>
-		</div>
+		
+		
 </body>
 </html>
