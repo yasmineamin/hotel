@@ -192,7 +192,7 @@ include_once("functions.php");
 						<td colspan="2" style="text-align: center;"><input type="submit" value="Submit"></td>
 						</tr>
 						<tr>
-						<td colspan="2" style="text-align: center;"><input type="submit" value="Cancel" id="Cancel"></td>
+						<td colspan="2" style="text-align: center;"><input type="reset" value="Cancel" id="Cancel"></td>
 					</tr>
 				</table>
 			</form>
