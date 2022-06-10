@@ -6,7 +6,6 @@
 
 include "recep_menu.php";
 ?>
-</head>
 <style>
 	body {
 	  margin: 0;
@@ -74,6 +73,8 @@ include "recep_menu.php";
 		background-color:red;
 	}
 </style>
+</head>
+
 <body>
 	<?php
 		session_start();
@@ -131,6 +132,24 @@ include_once("functions.php");
 					</tr>
 					<tr>
 					<td>Number of children:<input type="text" name="nochild"></td>
+					</tr>
+					<tr>
+						<td style="text-align: left;">Select room name:</td>
+						<td style="text-align: left;">
+							<select name="rooms" required>
+								<option value="">Select</option>
+								<option value="CLUB ROOM">CLUB ROOM</option>
+								<option value="CLASSIC ROOM">CLASSIC ROOM</option>
+								<option value="SUPERIOR ROOM">SUPERIOR ROOM</option>
+								<option value="FAMILY ROOM">FAMILY ROOM</option>
+								<option value="PRESIDENTIAL SUITES">PRESIDENTIAL SUITES</option>
+								<option value="BACHELOR ROOM">BACHELOR ROOM</option>
+								<option value="LUXURY ROOM">LUXURY ROOM</option>
+								<option value="DELUXE ROOM">DELUXE ROOM</option>
+								<option value="SUPERDELUX ROOM">SUPERDELUX ROOM</option>
+								
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td style="text-align: left;">Select room type:</td>
