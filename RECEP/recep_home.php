@@ -10,6 +10,13 @@
         body{
 background: #f2f2f2;	
 }
+        .welcome {
+  display: grid;
+  place-items: center;
+
+  /* Just for parent demo size */
+  height: 100vh;
+}
     </style>
     <?php
 session_start();
@@ -18,8 +25,10 @@ include "recep_menu.php";?>
     
 
 <body>
-
-<h2>Welcome Back!</h2>
-
+<div class="welcome">
+  <div class="box" contenteditable="">
+      <h2>Welcome back!</h2>
+  </div>
+</div>
 </body>
 </html>
