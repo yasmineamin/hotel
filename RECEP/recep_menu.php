@@ -52,6 +52,7 @@ navbar-dark-toggler-border-color:  rgba($white, .1);-->
 			<?php
 				if(!empty($_SESSION['ID'])) 
 				{
+				
 					echo "Welcome ".$_SESSION['Name'];
 					
 				}
