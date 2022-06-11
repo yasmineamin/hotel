@@ -8,8 +8,6 @@ if(isset($_SESSION['user_id']))
 header("location:login.php");
 die;
 
-
-
 ?>
 <?php
 session_start();
