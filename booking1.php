@@ -1,7 +1,7 @@
-<html>
-	<?php
-		session_start();
 
+<?php
+		
+session_start();
 
 include_once("saveconnection.php");
 include_once("functions.php");
@@ -11,9 +11,9 @@ include_once("functions.php");
 			die("Connection failed: ".$conn->connect_error);
 		}
 		
-	$room = $_POST["rooms"];
-	$checkin = $_POST["checkin"];
-	$checkout = $_POST["checkout"];
+	$room = $_POST['rooms'];
+	$checkin = $_POST['checkin'];
+	$checkout = $_POST['checkout'];
 	$ac = isset($_POST["ac"]) ? "true":"false";
 	$breakfast = isset($_POST["breakfast"]) ? "true":"false";
 	$lunch = isset($_POST["lunch"]) ? "true":"false";
@@ -26,12 +26,22 @@ include_once("functions.php");
 	$years = floor($diff / (365*60*60*24));  
 	$months = floor(($diff - $years * 365*60*60*24)/(30*60*60*24));
 	$days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
-	$sql = "SELECT * FROM temp_session";
+	
+	$recdat = date('y-m-d h:i:s');
+		
+	//$userid = $_SESSION['id'];
+	
+	$sql = "SELECT * FROM login where id = 7";
+	
 	$result=mysqli_query($conn,$sql);
 	$row=mysqli_fetch_row($result);
-	$phone = $row[0];
-	$name = $row[2];
-	$id = $row[4];
+	$phone = $row[7];
+	$name = $row[3];
+	$id = $row[0];
+	
+	/////$phone = $row[0];
+	///$name = $row[2];
+	//$id = $row[4];
 	$status = "Waiting";
 	$price = 0;
 	if(strcmp($room, "Single bed")==0)
@@ -46,6 +56,8 @@ include_once("functions.php");
 	{
 		$price = 3000;
 	}
+
+	
 	$price = $price*$days;
 	$additional = 0;
 	if(strcmp($ac, "true")==0)
@@ -73,17 +85,34 @@ include_once("functions.php");
 		$additional = $additional + 300;
 	}
 	$sqlt = "SELECT * from book_id";
+	
 	$result=mysqli_query($conn,$sqlt)or die( mysqli_error($conn));
 	$row=mysqli_fetch_row($result);
 	$t = $row[0];
 	$price = $price + $days*$additional;
-	$sql = "INSERT INTO user_room_book VALUES ('$phone', '$name', '$id', '$room', '$checkin', '$checkout', '$days', '$ac', '$breakfast', '$lunch', '$snacks', '$dinner', '$swimming', '$status', '$price', '$t')";
-	mysqli_query($conn, $sql);
-	$t = $t + 1;
-	$sqlt = "DELETE from book_id";
-	mysqli_query($conn,$sqlt);
-	$sqlt = "INSERT INTO book_id VALUES ('$t')";
-	mysqli_query($conn,$sqlt);
-	header("Location: booking2.php");
+	
+	$result=mysqli_query($conn,$sql )or die(mysqli_error($conn));
+	
+	
+  
+	$sql = "INSERT INTO user_room_book VALUES ('$phone', '$name', '$id', '$room', '$checkin', '$checkout', '$days', '$ac', '$breakfast', '$lunch', '$snacks', '$dinner', '$swimming', '$status', '$price', '$t' , '$recdat')";
+	$result=mysqli_query($conn,$sql )or die(mysqli_error($conn));
+	if($result)
+	{
+		$t = $t + 1;
+		$sqlt = "DELETE from book_id";
+		mysqli_query($conn,$sqlt);
+		
+		$sqlt = "INSERT INTO book_id VALUES ('$t')";
+		mysqli_query($conn,$sqlt);
+		header("Location: booking2.php");
+		
+	}
+	 else
+	 {
+		echo "no data inserted please try again";
+		
+	 }
+	 
+	
 	?>
-</html>

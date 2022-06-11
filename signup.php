@@ -1,11 +1,118 @@
-<!DOCTYPE html>
+<?php
+
+$servername="localhost";
+$username="root";
+$password="";
+$DB="login";
+
+$conn = mysqli_connect($servername,$username,$password,$DB);
+  
+
+if(isset($_POST['submit']))
+{
+	$fname= $_POST['fname'];
+	$lname= $_POST['lname'];
+	$username=$_POST['username'];
+	$email=$_POST['email'];
+	$password= $_POST['password'];
+	$cpassword= $_POST ['cpassword'];
+	$mobile_phone= $_POST ['mobile_phone'];
+	//$role= $_POST ['role'];
+	$gender= $_POST ['gender'];
+    $national_id=$_POST['national_id'];
+  
+  //not matching-validation
+	 if (!($password == $cpassword) )
+	 {
+		  echo "not matching passwords";
+		  exit(0);
+		  //die;
+	 }
+ //wrong email
+    $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+	if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
+	{
+		echo "This email adress isn't valid!";
+		exit(0);
+	}
+ 
+ 
+  
+	$sql="INSERT INTO `login`(`fname`, `lname`, `username`, `email`, `password`, `cpassword`, `mobile_phone`, `gender`, `national_id`) VALUES ('$fname','$lname','$username','$email','$password','$cpassword','$mobile_phone','$gender','$national_id')";
+
+	$result=mysqli_query($conn,$sql )or die(mysqli_error($conn));
+	if($result)
+	{
+		header("location:room.php");
+		exit();
+	  
+	}
+	 else
+	 {
+		echo "no data inserted please try again";
+		
+	 }
+
+}
+
+/*
+  $uppercase = preg_match('[A-Z]', $password);
+  $lowercase = preg_match('[a-z]', $password);
+  $number    = preg_match('[0-9]', $password);
+  $specialchars = preg_match('[^\w]', $password);
+  if (strlen($password) < 8)
+  {
+	echo "Password less than 8 characters";  
+	 exit(0);
+  }
+  
+  if(!$uppercase )
+  {
+	  echo "Password does not include uppercase character";  
+	 ///exit(0);
+  }
+   if(!$lowercase )
+   {
+	   echo "Password does not include lowercase character";  
+	 //exit(0);
+   }
+   if(!$number )
+   {
+	   echo "Password oes not include a number ";  
+	// exit(0);
+   }
+  if( !$specialchars ) 
+  {
+   
+    echo "Password does not have special characters ";
+	//exit(0);
+  }
+  echo "r111";
+ 
+ 
+
+}
+
+  //not showing an alert box.
+
+echo '<script type="text/javascript">';
+echo '  alert("please re-enter the data");';
+ echo '</script>';
+	
+}
+*/
+  ?>
+ 
 <html>
+
  <title>SIGN UP</title>
     <!--<link rel="stylesheet" type="text/CSS"  href="stylesheet.css" />-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7
 .0/css/font-awesome.min.css">
+<head>
     <style>
         * {
             margin: 0;
@@ -280,111 +387,6 @@
 
 <body>
 
-<?php
-
-$servername="localhost";
-$username="root";
-$password="";
-$DB="login";
-
-$conn = mysqli_connect($servername,$username,$password,$DB);
-  
-
-if(isset($_POST['submit']))
-{
-	$fname= $_POST['fname'];
-	$lname= $_POST['lname'];
-	$username=$_POST['username'];
-	$email=$_POST['email'];
-	$password= $_POST['password'];
-	$cpassword= $_POST ['cpassword'];
-	$mobile_phone= $_POST ['mobile_phone'];
-	//$role= $_POST ['role'];
-	$gender= $_POST ['gender'];
-$national_id=$_POST['national_id'];
-  
-  
- 
-  
-  
-	$sql="INSERT INTO `login`(`fname`, `lname`, `username`, `email`, `password`, `cpassword`, `mobile_phone`, `gender`, `national_id`) VALUES ('$fname','$lname','$username','$email','$password','$cpassword','$mobile_phone','$gender','$national_id')";
-
-$result=mysqli_query($conn,$sql )or die(mysqli_error($conn));
-if($result)
-{
-
-  //not matching-validation
- if (!($password == $cpassword) )
- {
-  echo "not matching passwords";
-  die;
- }
- //wrong email
- $emailB = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-if (filter_var($emailB, FILTER_VALIDATE_EMAIL) === false || $emailB != $email) 
-{
-    echo "This email adress isn't valid!";
-    exit(0);
-}
-}
- else
- {
-	header("location:index.php");
-	die;
- }
-}
-
-/*
-  $uppercase = preg_match('[A-Z]', $password);
-  $lowercase = preg_match('[a-z]', $password);
-  $number    = preg_match('[0-9]', $password);
-  $specialchars = preg_match('[^\w]', $password);
-  if (strlen($password) < 8)
-  {
-	echo "Password less than 8 characters";  
-	 exit(0);
-  }
-  
-  if(!$uppercase )
-  {
-	  echo "Password does not include uppercase character";  
-	 ///exit(0);
-  }
-   if(!$lowercase )
-   {
-	   echo "Password does not include lowercase character";  
-	 //exit(0);
-   }
-   if(!$number )
-   {
-	   echo "Password oes not include a number ";  
-	// exit(0);
-   }
-  if( !$specialchars ) 
-  {
-   
-    echo "Password does not have special characters ";
-	//exit(0);
-  }
-  echo "r111";
- 
- 
-
-}
-
-  //not showing an alert box.
-
-echo '<script type="text/javascript">';
-echo '  alert("please re-enter the data");';
- echo '</script>';
-	
-}
-*/
-  ?>
-
-
-
     <div class="container">
         <p class="signup-text">SignUp with social media</p>
         <div class="signup-social">
@@ -394,7 +396,7 @@ echo '  alert("please re-enter the data");';
                 Plus</a>
             <a href="https://www.linkedin.com/login" class="linkedin"><i class="fa fa-linkedin"></i> Linkedin</a>
         </div>
-        <form class="signup" method="POST" action="signup.php">
+        <form class="signup" method="POST" >
             <p class="signup-text">Sign Up</p>
 			  <div class="input-group">
                 <input type="text" name="fname" placeholder="first name" required>
@@ -440,9 +442,9 @@ echo '  alert("please re-enter the data");';
 
             </div>
 
-
             <div class="input-group">
-                <button type="submit" name="submit" onclick="myFunction()" class="btn">Sign Up</button>
+                <button type="submit" name="submit" onclick="" class="btn">Sign Up</button>
+				
 				
             </div>
             <div class="input-group">

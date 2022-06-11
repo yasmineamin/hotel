@@ -1,28 +1,33 @@
-<?php
 
+<?php
+session_start();
 $servername="localhost";
 $username="root";
 $password="";
 $DB="login";
+
 
 $conn = mysqli_connect($servername,$username,$password,$DB);
  
  if($_SERVER["REQUEST_METHOD"] == "POST") 
 {
 //login :email-password-role->check 
+
 	$email=$_POST ['email'];
 	$password=$_POST['password'];
 	//$role= $_POST['role'];
 	
-$sql = "SELECT email,password,role FROM login WHERE email='$email' and password='$password'" ;
+$sql = "SELECT * FROM login WHERE email='$email' and password='$password'" ;
 
 	
 
 $result=mysqli_query($conn,$sql);
 	if(mysqli_fetch_row($result)>0)
 	{
-		$r=mysqli_fetch_assoc($result);
-		$SESSION['id']=$r['id'];
+		$id = 0;
+		$row=mysqli_fetch_assoc($result);
+        $id =$row[0];
+		$_SESSION['id'] = $row[0];
 		header('location:room.php');
 	}
 
