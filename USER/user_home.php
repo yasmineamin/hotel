@@ -41,7 +41,7 @@ include "user_menu.php";
   <div class="box" contenteditable="">
       <h2>Welcome back!</h2>
   </div>
-
+	</div>
 </body>
 </html>
     
