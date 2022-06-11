@@ -78,7 +78,7 @@ while($row = mysqli_fetch_array($result))
 </table>
 <p><button type="submit" class="btn btn-success" name="save">DELETE</button></p>
 </form>
- 
+
 </body>
 </html>
 </html>
