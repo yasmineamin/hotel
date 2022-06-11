@@ -15,24 +15,37 @@ $conn = mysqli_connect($servername,$username,$password,$DB);
 
 	$email=$_POST ['email'];
 	$password=$_POST['password'];
-	//$role= $_POST['role'];
+	$role= "";
 	
 $sql = "SELECT * FROM login WHERE email='$email' and password='$password'" ;
 
 	
 
 $result=mysqli_query($conn,$sql);
-	if(mysqli_fetch_row($result)>0)
-	{
-		$id = 0;
-		$row=mysqli_fetch_assoc($result);
+	    $id = 0;
+		
+		$row=mysqli_fetch_row($result);
         $id =$row[0];
+		$role = $row[8];
 		$_SESSION['id'] = $row[0];
-		header('location:room.php');
-	}
-
-		else
+	
+		if($role == 'guest')
+		{
+			header('location:room.php');
+		}
+		if($role == 'quality')
+		{
+			header ('location:qc.php');
+		}
+		if($role == 'recep')
+		{
+			header ('location:recep_home.php');
+		}
+		if($role == '')
+		{
 			echo '<script>alert("email does not exist please signup first")</script>';
+		}
+	
 }
 /*if($result)
 {

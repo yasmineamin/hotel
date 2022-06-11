@@ -29,10 +29,10 @@ include_once("functions.php");
 	
 	$recdat = date('y-m-d h:i:s');
 		
-	//$userid = $_SESSION['id'];
+	$userid = $_SESSION['id'];
 	
-	$sql = "SELECT * FROM login where id = 7";
-	
+	$sql = "SELECT * FROM login where id = '$userid' ";
+
 	$result=mysqli_query($conn,$sql);
 	$row=mysqli_fetch_row($result);
 	$phone = $row[7];
