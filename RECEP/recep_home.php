@@ -13,8 +13,6 @@ background: #f2f2f2;
         .welcome {
   display: grid;
   place-items: center;
-
-  /* Just for parent demo size */
   font-size: large;
 }
     </style>
