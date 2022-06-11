@@ -37,8 +37,10 @@ include "user_menu.php";
 	}
 </style>
 <body>
-	<h2 style="align-text:center;"><i>Welcome back</i></h2>
-	<p style="align-text:center;">We are happy to see you</p>
+<div class="welcome">
+  <div class="box" contenteditable="">
+      <h2>Welcome back!</h2>
+  </div>
 
 </body>
 </html>
