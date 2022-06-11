@@ -15,7 +15,7 @@ background: #f2f2f2;
   place-items: center;
 
   /* Just for parent demo size */
-  height: 100vh;
+  font-size: large;
 }
     </style>
     <?php
@@ -32,3 +32,4 @@ include "recep_menu.php";?>
 </div>
 </body>
 </html>
+
