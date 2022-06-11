@@ -21,11 +21,5 @@ include "recep_menu.php";?>
 
 <h2>Welcome Back!</h2>
 
-
-
-
-
-
-
 </body>
 </html>
