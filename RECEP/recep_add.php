@@ -10,7 +10,7 @@
 <?php
 session_start();
 include "recep_menu.php";?>
-<title>Add User</title>
+<title>Add Room</title>
 <style>
 body {
 	  margin: 0;
